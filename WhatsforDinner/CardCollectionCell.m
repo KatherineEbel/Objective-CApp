@@ -10,6 +10,7 @@
 
 @implementation CardCollectionCell
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
+  [super applyLayoutAttributes: layoutAttributes];
   CGPoint center = layoutAttributes.center;
   CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath: @"position.y"];
   animation.toValue = @(center.y);

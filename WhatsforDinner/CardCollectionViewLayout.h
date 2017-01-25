@@ -17,6 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) IBInspectable CGSize cardSize;
 @property (nonatomic) IBInspectable UIEdgeInsets cardInsets;
 @property (nonatomic) IBInspectable BOOL newCardShouldAppearOnBottom;
+@property (nonatomic) BOOL gesturesEnabled;
 
+- (void) handleAddingNewCard:(int)newCardIndex;
+- (void) moveCardUp;
+- (void) moveCardDown;
 @end
 NS_ASSUME_NONNULL_END

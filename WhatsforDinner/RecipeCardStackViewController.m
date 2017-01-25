@@ -11,13 +11,15 @@
 
 @interface RecipeCardStackViewController ()
 @property (weak, nonatomic) IBOutlet CardCollectionViewLayout *layout;
-
+@property (nonatomic) float animationSpeedDefault;
 @end
 
 @implementation RecipeCardStackViewController
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.collectionView.scrollEnabled = false;
+  [self setNumberOfCards: 5];
+  [self setAnimationSpeedDefault: 0.85];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,6 +27,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) newCardWasAdded {
+  if (_layout.newCardShouldAppearOnBottom) {
+    [_layout handleAddingNewCard: _numberOfCards - 1];
+  } else {
+    [_layout handleAddingNewCard: 0];
+  }
+}
+- (CardCollectionCell *)card:(UICollectionView *)collectionView cardForItemAtIndexPath:(NSIndexPath *)indexPath {
+  CardCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cardCell" forIndexPath:indexPath];
+  return cell;
+}
+
+- (void) setAnimationSpeedDefault:(float)animationSpeedDefault {
+  self.collectionView.layer.speed = animationSpeedDefault;
+}
 /*
 #pragma mark - Navigation
 
@@ -43,12 +60,11 @@
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 5;
+    return _numberOfCards;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-  CardCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cardCell" forIndexPath:indexPath];
-  return cell;
+  return [self card: collectionView cardForItemAtIndexPath: indexPath];
 }
 
 #pragma mark <UICollectionViewDelegate>
