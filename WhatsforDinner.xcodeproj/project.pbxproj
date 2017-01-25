@@ -13,9 +13,19 @@
 		4441718C1E34126700EDAF1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4441718A1E34126700EDAF1A /* Main.storyboard */; };
 		4441718E1E34126700EDAF1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4441718D1E34126700EDAF1A /* Assets.xcassets */; };
 		444171911E34126700EDAF1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4441718F1E34126700EDAF1A /* LaunchScreen.storyboard */; };
+		44A5436C1E341D0C0028B92A /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A5436B1E341D0C0028B92A /* Recipe.m */; };
+		44A5436F1E3455F30028B92A /* FoodTrivia.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A5436E1E3455F30028B92A /* FoodTrivia.m */; };
+		44A543731E34E4410028B92A /* CardCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A543721E34E4410028B92A /* CardCollectionCell.m */; };
+		44A543761E34EA480028B92A /* CardCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A543751E34EA480028B92A /* CardCollectionViewLayout.m */; };
+		44A543791E3533B90028B92A /* RecipeCardStackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A543781E3533B90028B92A /* RecipeCardStackViewController.m */; };
+		F0AED9502A6DA3F1F2AB9ED7 /* libPods-WhatsforDinner.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 414DD404635353951D761E3D /* libPods-WhatsforDinner.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1686BE929EA0F8C1E6745413 /* Pods-WhatsforDinner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsforDinner.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsforDinner/Pods-WhatsforDinner.release.xcconfig"; sourceTree = "<group>"; };
+		27F5BC601E37F19E00827840 /* CardLayoutDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardLayoutDelegate.h; sourceTree = "<group>"; };
+		2D6D88A0C82036887AE9BC96 /* Pods-WhatsforDinner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsforDinner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsforDinner/Pods-WhatsforDinner.debug.xcconfig"; sourceTree = "<group>"; };
+		414DD404635353951D761E3D /* libPods-WhatsforDinner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhatsforDinner.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4441717E1E34126700EDAF1A /* WhatsforDinner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsforDinner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		444171821E34126700EDAF1A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		444171841E34126700EDAF1A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +36,17 @@
 		4441718D1E34126700EDAF1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		444171901E34126700EDAF1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		444171921E34126700EDAF1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44A5436A1E341D0C0028B92A /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
+		44A5436B1E341D0C0028B92A /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
+		44A5436D1E3455F30028B92A /* FoodTrivia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodTrivia.h; sourceTree = "<group>"; };
+		44A5436E1E3455F30028B92A /* FoodTrivia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodTrivia.m; sourceTree = "<group>"; };
+		44A543711E34E4410028B92A /* CardCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardCollectionCell.h; sourceTree = "<group>"; };
+		44A543721E34E4410028B92A /* CardCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardCollectionCell.m; sourceTree = "<group>"; };
+		44A543741E34EA480028B92A /* CardCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardCollectionViewLayout.h; sourceTree = "<group>"; };
+		44A543751E34EA480028B92A /* CardCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardCollectionViewLayout.m; sourceTree = "<group>"; };
+		44A543771E3533B90028B92A /* RecipeCardStackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeCardStackViewController.h; sourceTree = "<group>"; };
+		44A543781E3533B90028B92A /* RecipeCardStackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeCardStackViewController.m; sourceTree = "<group>"; };
+		44A5437B1E3536E90028B92A /* CardStackCollectionViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardStackCollectionViewDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0AED9502A6DA3F1F2AB9ED7 /* libPods-WhatsforDinner.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +66,8 @@
 			children = (
 				444171801E34126700EDAF1A /* WhatsforDinner */,
 				4441717F1E34126700EDAF1A /* Products */,
+				AB5F19C6D6594A59B5945A34 /* Pods */,
+				D20A9608EC1F1E9746BF34C6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +82,8 @@
 		444171801E34126700EDAF1A /* WhatsforDinner */ = {
 			isa = PBXGroup;
 			children = (
+				44A543701E34E3ED0028B92A /* SubclassedViews */,
+				44A543691E341CD00028B92A /* Model */,
 				444171841E34126700EDAF1A /* AppDelegate.h */,
 				444171851E34126700EDAF1A /* AppDelegate.m */,
 				444171871E34126700EDAF1A /* ViewController.h */,
@@ -79,6 +105,49 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		44A543691E341CD00028B92A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				44A5436A1E341D0C0028B92A /* Recipe.h */,
+				44A5436B1E341D0C0028B92A /* Recipe.m */,
+				44A5436D1E3455F30028B92A /* FoodTrivia.h */,
+				44A5436E1E3455F30028B92A /* FoodTrivia.m */,
+				44A5437B1E3536E90028B92A /* CardStackCollectionViewDelegate.h */,
+				27F5BC601E37F19E00827840 /* CardLayoutDelegate.h */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		44A543701E34E3ED0028B92A /* SubclassedViews */ = {
+			isa = PBXGroup;
+			children = (
+				44A543711E34E4410028B92A /* CardCollectionCell.h */,
+				44A543721E34E4410028B92A /* CardCollectionCell.m */,
+				44A543741E34EA480028B92A /* CardCollectionViewLayout.h */,
+				44A543751E34EA480028B92A /* CardCollectionViewLayout.m */,
+				44A543771E3533B90028B92A /* RecipeCardStackViewController.h */,
+				44A543781E3533B90028B92A /* RecipeCardStackViewController.m */,
+			);
+			name = SubclassedViews;
+			sourceTree = "<group>";
+		};
+		AB5F19C6D6594A59B5945A34 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2D6D88A0C82036887AE9BC96 /* Pods-WhatsforDinner.debug.xcconfig */,
+				1686BE929EA0F8C1E6745413 /* Pods-WhatsforDinner.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D20A9608EC1F1E9746BF34C6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				414DD404635353951D761E3D /* libPods-WhatsforDinner.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +155,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 444171951E34126700EDAF1A /* Build configuration list for PBXNativeTarget "WhatsforDinner" */;
 			buildPhases = (
+				3443801CDD397B466BE1760C /* [CP] Check Pods Manifest.lock */,
 				4441717A1E34126700EDAF1A /* Sources */,
 				4441717B1E34126700EDAF1A /* Frameworks */,
 				4441717C1E34126700EDAF1A /* Resources */,
+				A1C61671187EF15599FD9130 /* [CP] Embed Pods Frameworks */,
+				7B2AEFBF2BE6868EA471671C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -146,14 +218,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3443801CDD397B466BE1760C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7B2AEFBF2BE6868EA471671C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatsforDinner/Pods-WhatsforDinner-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1C61671187EF15599FD9130 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatsforDinner/Pods-WhatsforDinner-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4441717A1E34126700EDAF1A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				444171891E34126700EDAF1A /* ViewController.m in Sources */,
+				44A543791E3533B90028B92A /* RecipeCardStackViewController.m in Sources */,
 				444171861E34126700EDAF1A /* AppDelegate.m in Sources */,
 				444171831E34126700EDAF1A /* main.m in Sources */,
+				44A543731E34E4410028B92A /* CardCollectionCell.m in Sources */,
+				44A5436C1E341D0C0028B92A /* Recipe.m in Sources */,
+				44A5436F1E3455F30028B92A /* FoodTrivia.m in Sources */,
+				44A543761E34EA480028B92A /* CardCollectionViewLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +394,7 @@
 		};
 		444171961E34126700EDAF1A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D6D88A0C82036887AE9BC96 /* Pods-WhatsforDinner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8FN9PNN474;
@@ -276,11 +402,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.katherineebel.WhatsforDinner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
 		444171971E34126700EDAF1A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1686BE929EA0F8C1E6745413 /* Pods-WhatsforDinner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8FN9PNN474;
@@ -288,6 +416,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.katherineebel.WhatsforDinner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
@@ -310,6 +439,7 @@
 				444171971E34126700EDAF1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
