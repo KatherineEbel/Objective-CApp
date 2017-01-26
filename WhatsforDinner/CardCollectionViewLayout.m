@@ -12,7 +12,7 @@
 {
   NSIndexPath *_indexPathOfDraggedCell;
   CGPoint _initialCellCenter;
-  NSMutableDictionary *_bottomStackRotations;
+  NSMutableDictionary<NSNumber*,NSNumber*> *_bottomStackRotations;
   BOOL _newCardAnimatonInProgress;
   double _coefficientOfrotation;
   CGFloat _angleOfRotationForNewCardAnimation;
@@ -28,8 +28,25 @@
 @end
 
 @implementation CardCollectionViewLayout
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+  self = [super initWithCoder:aDecoder];
+  if (self) {
+    _newCardAnimatonInProgress = NO;
+    _gesturesEnabled = YES;
+    _index = 0;
+    _coefficientOfrotation = 0.25;
+    _angleOfRotationForNewCardAnimation = 0.25;
+    _verticalOffsetBetweenCardsInTopStack = 16;
+    _centralCardYPosition = 90;
+    _bottomStackRotations = [NSMutableDictionary dictionary];
+    _minimumXPanDistanceToSwipe = 100;
+    _minimumYPanDistanceToSwipe = 60;
+  }
+  return self;
+}
 - (void)setIndex:(int)index {
   _indexPathOfDraggedCell = _index > index ? [NSIndexPath indexPathForItem: index inSection:0] : [NSIndexPath indexPathForItem: _index inSection:0];
+  _index = index;
   UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath: _indexPathOfDraggedCell];
   if (cell != nil) {
     [self.collectionView bringSubviewToFront: cell];
@@ -38,12 +55,8 @@
   [self.collectionView performBatchUpdates:^{
     [self invalidateLayout];
   } completion:^(BOOL finished) {
-    // TODO: tell delegate cardDidChange state
+    // TODO: tell delegate cardDidChange state (implement if needed)
   }];
-}
-- (void)prepareLayout {
-  [super prepareLayout];
-  [self setDefaultValues];
 }
 
 - (void)setGesturesEnabled:(BOOL)gesturesEnabled {
@@ -55,13 +68,13 @@
 }
 - (void)moveCardUp {
   if (_index > 0) {
-    [self setIndex: _index - 1];
+    [self setIndex: self.index - 1];
   }
 }
 
 - (void)moveCardDown {
-  if (_index <= [self.collectionView numberOfItemsInSection: 0] - 1) {
-    [self setIndex: _index + 1];
+  if (self.index <= [self.collectionView numberOfItemsInSection: 0] - 1) {
+    [self setIndex: self.index + 1];
   }
 }
 - (void)addGestures {
@@ -94,7 +107,7 @@
 }
 
 - (UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)itemIndexPath {
-  [super initialLayoutAttributesForAppearingItemAtIndexPath: itemIndexPath];
+  // [super initialLayoutAttributesForAppearingItemAtIndexPath: itemIndexPath];
   UICollectionViewLayoutAttributes *initialAttributes;
   if (((_newCardShouldAppearOnBottom && itemIndexPath.item == [self.collectionView numberOfItemsInSection: 0] - 1) || (!_newCardShouldAppearOnBottom && itemIndexPath.item == 0)) && _newCardAnimatonInProgress) {
     initialAttributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath: itemIndexPath];
@@ -140,39 +153,23 @@
   return attributes;
 }
 
-- (void)setDefaultValues {
-  _newCardAnimatonInProgress = FALSE;
-  [self setGesturesEnabled: YES];
-  _coefficientOfrotation = 0.25;
-  _angleOfRotationForNewCardAnimation = 0.25;
-  _verticalOffsetBetweenCardsInTopStack = 20;
-  _centralCardYPosition = 70;
-  _bottomStackRotations = [NSMutableDictionary dictionary];
-  _minimumXPanDistanceToSwipe = 100;
-  _minimumYPanDistanceToSwipe = 60;
-}
-- (NSString*)layoutKeyForIndexpath:(NSIndexPath*)indexPath {
-  return  [NSString stringWithFormat: @"%ld_%ld", (long)indexPath.section, (long)indexPath.row];
-}
-
-
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
   UICollectionViewLayoutAttributes *attributesForItem = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath: indexPath];
-  if (indexPath.item >= _index) {
+  if (indexPath.item >= self.index) {
     attributesForItem = [self initialAttributesForTopStackItem: attributesForItem];
     // hide cards that aren't visible in top stack
-    attributesForItem.hidden = (attributesForItem.indexPath.item >= _index + _topStackMaxCount);
+    attributesForItem.hidden = (attributesForItem.indexPath.item >= self.index + _topStackMaxCount);
   } else {
     attributesForItem = [self initialAttributesForBottomStackItem: attributesForItem];
     // hide cards that aren't visible in bottom stack;
-    attributesForItem.hidden = (attributesForItem.indexPath.item < (_index - _bottomStackMaxCount));
+    attributesForItem.hidden = (attributesForItem.indexPath.item < (self.index - _bottomStackMaxCount));
   }
   
-  if (indexPath.item == _indexPathOfDraggedCell.item) {
-    // workaround for zIndex
+  if (indexPath.item ==  _indexPathOfDraggedCell.item) {
+    // adjust zIndex for each item
     attributesForItem.zIndex = 100000;
   } else {
-    attributesForItem.zIndex = (indexPath.item >= _index) ? (1000 -indexPath.item) : (1000 + indexPath.item);
+    attributesForItem.zIndex = (indexPath.item >= self.index) ? (1000 -indexPath.item) : (1000 + indexPath.item);
   }
   return  attributesForItem;
 }
@@ -191,13 +188,13 @@
 
 - (NSArray<NSIndexPath*>*) indexPathsForElementsInRect:(CGRect)rect {
   NSMutableArray *indexPaths = [NSMutableArray array];
-  NSUInteger count = [self.collectionView numberOfItemsInSection: 0];
-  NSUInteger topStackCount = MIN(count - (_index + 1), _topStackMaxCount - 1);
-  NSUInteger bottomStackCount = MIN(_index, _bottomStackMaxCount);
-  NSUInteger start = _index - bottomStackCount;
-  NSUInteger end = _index + 1 + topStackCount;
+  int count = (int)[self.collectionView numberOfItemsInSection: 0];
+  int topStackCount = MIN(count - (self.index + 1), _topStackMaxCount - 1);
+  int bottomStackCount = MIN(self.index, _bottomStackMaxCount);
+  int start = self.index - bottomStackCount;
+  int end = self.index + 1 + topStackCount;
   
-  for (NSUInteger i = start; i < end; i++) {
+  for (int i = start; i < end; i++) {
     [indexPaths addObject: [NSIndexPath indexPathForItem: i inSection:0]];
   }
   return indexPaths;
@@ -207,6 +204,7 @@
   return self.collectionView.frame.size;
 }
 
+// TODO: - remove if not needed
 //- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
 //  return !(CGSizeEqualToSize(newBounds.size, self.collectionView.frame.size));
 //}
@@ -216,11 +214,11 @@
 - (void) handleSwipe:(UISwipeGestureRecognizer*)sender {
   switch (sender.direction) {
     case UISwipeGestureRecognizerDirectionUp:
-      [self moveCardUp];
+      [self setIndex: self.index - 1];
       break;
     case UISwipeGestureRecognizerDirectionDown:
-      if (_index + 1 < [self.collectionView numberOfItemsInSection: 0]) {
-        [self moveCardDown];
+      if (self.index + 1 < [self.collectionView numberOfItemsInSection: 0]) {
+        [self setIndex: self.index + 1];
       }
       break;
   default:
@@ -235,7 +233,7 @@
     CGPoint newCenter = [sender translationInView: self.collectionView];
     [self udpateCenterPositionOfDraggedCell: newCenter];
   } else {
-    if (_indexPathOfDraggedCell != nil) {
+    if (_indexPathOfDraggedCell) {
       [self finishedDragging: [self.collectionView cellForItemAtIndexPath: _indexPathOfDraggedCell]];
     }
   }
@@ -243,15 +241,15 @@
 // Determine which card to drag
 - (void) findCellToDragByCoordinate:(CGPoint)touchCoordinate {
   NSIndexPath *indexPathAtTouch = [self.collectionView indexPathForItemAtPoint: touchCoordinate];
-  if (indexPathAtTouch.item >= _index) {
-    // top stack
+  if (indexPathAtTouch.item >= self.index) {
+    // touch location is top stack
     NSLog(@"Top of stack");
-    _indexPathOfDraggedCell = [NSIndexPath indexPathForItem: _index inSection: 0];
+    _indexPathOfDraggedCell = [NSIndexPath indexPathForItem: self.index inSection: 0];
     _initialCellCenter = [self.collectionView cellForItemAtIndexPath: _indexPathOfDraggedCell].center;
   } else {
     NSLog(@"Bottom of stack");
     if (_index > 0) {
-      _indexPathOfDraggedCell = [NSIndexPath indexPathForItem: _index - 1 inSection: 0];
+      _indexPathOfDraggedCell = [NSIndexPath indexPathForItem: self.index - 1 inSection: 0];
     }
     _initialCellCenter = [self.collectionView cellForItemAtIndexPath: _indexPathOfDraggedCell].center;
     // fix issue with zIndex
@@ -262,7 +260,7 @@
 
 // change position of dragged card
 - (void) udpateCenterPositionOfDraggedCell:(CGPoint)touchCoordinate {
-  if (_indexPathOfDraggedCell != nil) {
+  if (_indexPathOfDraggedCell) {
     UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath: _indexPathOfDraggedCell];
     CGFloat newCenterX = _initialCellCenter.x + touchCoordinate.x;
     CGFloat newCenterY = _initialCellCenter.y + touchCoordinate.y;
@@ -272,7 +270,7 @@
   }
 }
 
-// handle when user finishes dragging a cell
+// handle when user finishes dragging a cell if distance that user swiped was small, then don't move the card down
 - (void) finishedDragging:(UICollectionViewCell*)cell {
   CGFloat deltaX = fabs(cell.center.x - _initialCellCenter.x);
   CGFloat deltaY = fabs(cell.center.y - _initialCellCenter.y);
@@ -283,10 +281,10 @@
     [UIView setAnimationsEnabled: YES];
   } else {
     [self calculateAndStoreAngleOfRotation];
-    if (_indexPathOfDraggedCell.item == _index) {
-      [self moveCardUp];
+    if (_indexPathOfDraggedCell.item == self.index) {
+      [self setIndex: self.index + 1];
     } else {
-      [self moveCardDown];
+      [self setIndex: self.index - 1];
     }
     _initialCellCenter = CGPointZero;
     _indexPathOfDraggedCell = nil;
@@ -296,7 +294,7 @@
 // Compute and store angle of rotation TODO: don't like how this method calculates and stores maybe split up
 - (double) calculateAndStoreAngleOfRotation {
   double angle = 0;
-  if (_indexPathOfDraggedCell != nil) {
+  if (_indexPathOfDraggedCell) {
     UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath: _indexPathOfDraggedCell];
     CGFloat centerYIncidence = self.collectionView.frame.size.height + _cardSize.height - _bottomStackCardHeight;
     double gamma = (double)((cell.center.x - self.collectionView.bounds.size.width / 2) / (centerYIncidence - cell.center.y));

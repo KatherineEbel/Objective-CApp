@@ -16,6 +16,7 @@
   animation.toValue = @(center.y);
   animation.duration = 0.3;
   animation.timingFunction = [CAMediaTimingFunction functionWithControlPoints: 0.8 :2.0 :1.0 :1.0];
+  [self.layer addAnimation: animation forKey: @"position.y"];
   [super applyLayoutAttributes:layoutAttributes];
 }
 @end

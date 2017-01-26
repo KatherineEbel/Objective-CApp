@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27F5BC631E3A871800827840 /* CardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27F5BC621E3A871800827840 /* CardCell.xib */; };
 		444171831E34126700EDAF1A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 444171821E34126700EDAF1A /* main.m */; };
 		444171861E34126700EDAF1A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 444171851E34126700EDAF1A /* AppDelegate.m */; };
 		444171891E34126700EDAF1A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 444171881E34126700EDAF1A /* ViewController.m */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		1686BE929EA0F8C1E6745413 /* Pods-WhatsforDinner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsforDinner.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsforDinner/Pods-WhatsforDinner.release.xcconfig"; sourceTree = "<group>"; };
 		27F5BC601E37F19E00827840 /* CardLayoutDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardLayoutDelegate.h; sourceTree = "<group>"; };
+		27F5BC621E3A871800827840 /* CardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardCell.xib; sourceTree = "<group>"; };
 		2D6D88A0C82036887AE9BC96 /* Pods-WhatsforDinner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsforDinner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsforDinner/Pods-WhatsforDinner.debug.xcconfig"; sourceTree = "<group>"; };
 		414DD404635353951D761E3D /* libPods-WhatsforDinner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhatsforDinner.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4441717E1E34126700EDAF1A /* WhatsforDinner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsforDinner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +95,7 @@
 				4441718F1E34126700EDAF1A /* LaunchScreen.storyboard */,
 				444171921E34126700EDAF1A /* Info.plist */,
 				444171811E34126700EDAF1A /* Supporting Files */,
+				27F5BC621E3A871800827840 /* CardCell.xib */,
 			);
 			path = WhatsforDinner;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				444171911E34126700EDAF1A /* LaunchScreen.storyboard in Resources */,
 				4441718E1E34126700EDAF1A /* Assets.xcassets in Resources */,
 				4441718C1E34126700EDAF1A /* Main.storyboard in Resources */,
+				27F5BC631E3A871800827840 /* CardCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

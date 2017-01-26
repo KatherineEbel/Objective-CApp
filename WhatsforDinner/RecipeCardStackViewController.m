@@ -9,7 +9,9 @@
 #import "RecipeCardStackViewController.h"
 #import "CardCollectionCell.h"
 
-@interface RecipeCardStackViewController ()
+@interface RecipeCardStackViewController () {
+  NSArray *cardColors;
+}
 @property (weak, nonatomic) IBOutlet CardCollectionViewLayout *layout;
 @property (nonatomic) float animationSpeedDefault;
 @end
@@ -17,9 +19,12 @@
 @implementation RecipeCardStackViewController
 - (void)viewDidLoad {
   [super viewDidLoad];
+  cardColors = @[[UIColor cyanColor], [UIColor magentaColor],
+        [UIColor purpleColor], [UIColor blueColor], [UIColor greenColor]];
   self.collectionView.scrollEnabled = false;
-  [self setNumberOfCards: 5];
+  [self setNumberOfCards: 6];
   [self setAnimationSpeedDefault: 0.85];
+  [self.layout setGesturesEnabled: YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,6 +41,8 @@
 }
 - (CardCollectionCell *)card:(UICollectionView *)collectionView cardForItemAtIndexPath:(NSIndexPath *)indexPath {
   CardCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cardCell" forIndexPath:indexPath];
+  cell.layer.cornerRadius = 12;
+  cell.backgroundColor = cardColors[indexPath.item % [cardColors count]];
   return cell;
 }
 
@@ -66,36 +73,5 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
   return [self card: collectionView cardForItemAtIndexPath: indexPath];
 }
-
-#pragma mark <UICollectionViewDelegate>
-
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 @end
