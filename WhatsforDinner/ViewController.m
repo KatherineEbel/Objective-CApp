@@ -18,8 +18,11 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
   [self configureRestKit];
-  [self loadRecipes];
+  [self loadFoodTrivia];
 }
 
 

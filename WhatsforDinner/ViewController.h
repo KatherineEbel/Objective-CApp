@@ -12,7 +12,6 @@
 @interface ViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *foodTriviaLabel;
-@property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 @property FoodTrivia *foodTrivia;
 
 @end
