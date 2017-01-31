@@ -9,4 +9,7 @@
 #import "FoodTrivia.h"
 
 @implementation FoodTrivia
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+  return @{ @"text" : @"text" };
+}
 @end

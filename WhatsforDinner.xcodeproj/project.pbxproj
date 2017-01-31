@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		27F5BC631E3A871800827840 /* CardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27F5BC621E3A871800827840 /* CardCell.xib */; };
-		27F5BC651E3AB35600827840 /* PickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27F5BC641E3AB35600827840 /* PickerCell.xib */; };
 		27F5BC681E3AB46F00827840 /* MealCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F5BC671E3AB46F00827840 /* MealCategory.m */; };
 		27F5BC6A1E3B6F9E00827840 /* MealCategories.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27F5BC691E3B6F9E00827840 /* MealCategories.plist */; };
 		27F5BC711E3B717600827840 /* MealCategoriesViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F5BC701E3B717600827840 /* MealCategoriesViewModel.m */; };
@@ -20,6 +19,8 @@
 		444171911E34126700EDAF1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4441718F1E34126700EDAF1A /* LaunchScreen.storyboard */; };
 		4462C8171E3C0AFD000FC206 /* SpoonacularClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4462C8161E3C0AFD000FC206 /* SpoonacularClient.m */; };
 		4462C81B1E3CF432000FC206 /* RandomRecipeResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4462C81A1E3CF432000FC206 /* RandomRecipeResponse.m */; };
+		44991CA81E40F35800870C7F /* FoodTrivaViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 44991CA71E40F35800870C7F /* FoodTrivaViewModel.m */; };
+		44991CAB1E4100D300870C7F /* UIViewController+ViewControllerErrorAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 44991CAA1E4100D300870C7F /* UIViewController+ViewControllerErrorAlert.m */; };
 		44A5436C1E341D0C0028B92A /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A5436B1E341D0C0028B92A /* Recipe.m */; };
 		44A5436F1E3455F30028B92A /* FoodTrivia.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A5436E1E3455F30028B92A /* FoodTrivia.m */; };
 		44A543731E34E4410028B92A /* CardCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A543721E34E4410028B92A /* CardCollectionCell.m */; };
@@ -34,7 +35,6 @@
 /* Begin PBXFileReference section */
 		27F5BC601E37F19E00827840 /* CardLayoutDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardLayoutDelegate.h; sourceTree = "<group>"; };
 		27F5BC621E3A871800827840 /* CardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardCell.xib; sourceTree = "<group>"; };
-		27F5BC641E3AB35600827840 /* PickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerCell.xib; sourceTree = "<group>"; };
 		27F5BC661E3AB46F00827840 /* MealCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealCategory.h; sourceTree = "<group>"; };
 		27F5BC671E3AB46F00827840 /* MealCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealCategory.m; sourceTree = "<group>"; };
 		27F5BC691E3B6F9E00827840 /* MealCategories.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MealCategories.plist; sourceTree = "<group>"; };
@@ -55,6 +55,10 @@
 		4462C8181E3CD0B5000FC206 /* SPNObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPNObject.h; sourceTree = "<group>"; };
 		4462C8191E3CF432000FC206 /* RandomRecipeResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomRecipeResponse.h; sourceTree = "<group>"; };
 		4462C81A1E3CF432000FC206 /* RandomRecipeResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomRecipeResponse.m; sourceTree = "<group>"; };
+		44991CA61E40F35800870C7F /* FoodTrivaViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodTrivaViewModel.h; sourceTree = "<group>"; };
+		44991CA71E40F35800870C7F /* FoodTrivaViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodTrivaViewModel.m; sourceTree = "<group>"; };
+		44991CA91E4100D300870C7F /* UIViewController+ViewControllerErrorAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ViewControllerErrorAlert.h"; sourceTree = "<group>"; };
+		44991CAA1E4100D300870C7F /* UIViewController+ViewControllerErrorAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ViewControllerErrorAlert.m"; sourceTree = "<group>"; };
 		44A5436A1E341D0C0028B92A /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
 		44A5436B1E341D0C0028B92A /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
 		44A5436D1E3455F30028B92A /* FoodTrivia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodTrivia.h; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 			children = (
 				27F5BC6F1E3B717600827840 /* MealCategoriesViewModel.h */,
 				27F5BC701E3B717600827840 /* MealCategoriesViewModel.m */,
+				44991CA61E40F35800870C7F /* FoodTrivaViewModel.h */,
+				44991CA71E40F35800870C7F /* FoodTrivaViewModel.m */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -138,9 +144,9 @@
 				4441718F1E34126700EDAF1A /* LaunchScreen.storyboard */,
 				444171921E34126700EDAF1A /* Info.plist */,
 				444171811E34126700EDAF1A /* Supporting Files */,
-				27F5BC621E3A871800827840 /* CardCell.xib */,
-				27F5BC641E3AB35600827840 /* PickerCell.xib */,
 				27F5BC691E3B6F9E00827840 /* MealCategories.plist */,
+				44991CA91E4100D300870C7F /* UIViewController+ViewControllerErrorAlert.h */,
+				44991CAA1E4100D300870C7F /* UIViewController+ViewControllerErrorAlert.m */,
 			);
 			path = WhatsforDinner;
 			sourceTree = "<group>";
@@ -195,6 +201,7 @@
 		44A931111E3F66A400AE1124 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
+				27F5BC621E3A871800827840 /* CardCell.xib */,
 				44A931121E3F66CD00AE1124 /* MealCategoryCardCell.xib */,
 			);
 			name = XIBs;
@@ -276,7 +283,6 @@
 				44A931131E3F66CD00AE1124 /* MealCategoryCardCell.xib in Resources */,
 				4441718C1E34126700EDAF1A /* Main.storyboard in Resources */,
 				27F5BC631E3A871800827840 /* CardCell.xib in Resources */,
-				27F5BC651E3AB35600827840 /* PickerCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,11 +350,13 @@
 				444171831E34126700EDAF1A /* main.m in Sources */,
 				44A543731E34E4410028B92A /* CardCollectionCell.m in Sources */,
 				44A5436C1E341D0C0028B92A /* Recipe.m in Sources */,
+				44991CA81E40F35800870C7F /* FoodTrivaViewModel.m in Sources */,
 				27F5BC681E3AB46F00827840 /* MealCategory.m in Sources */,
 				44A5436F1E3455F30028B92A /* FoodTrivia.m in Sources */,
 				44A543761E34EA480028B92A /* CardCollectionViewLayout.m in Sources */,
 				44A931101E3F668200AE1124 /* MealCategoryCardCell.m in Sources */,
 				4462C81B1E3CF432000FC206 /* RandomRecipeResponse.m in Sources */,
+				44991CAB1E4100D300870C7F /* UIViewController+ViewControllerErrorAlert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

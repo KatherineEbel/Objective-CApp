@@ -15,11 +15,13 @@
   return @{ @"recipes" : @"recipes" };
 }
 
-+ (NSDictionary *)parameters {
++ (NSDictionary *)parametersWithTags:(NSArray<NSString*> *)tags {
+  NSString *tagsString = [tags componentsJoinedByString: @","];
+  NSString *tagsWithMainCourse = [tagsString stringByAppendingString: @",main course"];
   return @{
            @"limitLicense"  : @"true",
            @"number"       : @"1",
-           @"tags"         : @"main course"
+           @"tags"         : tagsWithMainCourse
            };
 }
 

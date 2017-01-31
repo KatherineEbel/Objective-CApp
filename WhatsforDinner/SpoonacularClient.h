@@ -14,5 +14,6 @@
 // tags (string) - commma separated
 @interface SpoonacularClient : OVCHTTPSessionManager
 + (NSDictionary *)modelClassesByResourcePath;
-@property (nonatomic, strong, getter=getRandomRecipes) RACSignal *randomRecipes;
+- (RACSignal *)getFoodTrivia;
+- (RACSignal *)getRandomRecipesWithTags:(NSArray<NSString *> *)tags;
 @end

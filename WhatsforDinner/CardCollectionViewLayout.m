@@ -10,7 +10,7 @@
 #import "CardCollectionCell.h"
 @interface CardCollectionViewLayout ()
 {
-  NSIndexPath *_indexPathOfDraggedCell;
+//  NSIndexPath *_indexPathOfDraggedCell;
   CGPoint _initialCellCenter;
   NSMutableDictionary<NSNumber*,NSNumber*> *_bottomStackRotations;
   BOOL _newCardAnimatonInProgress;

@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface CardCollectionViewLayout : UICollectionViewLayout <UIGestureRecognizerDelegate>
 @property (nonatomic) int index;
+@property (nonatomic, strong) NSIndexPath *indexPathOfDraggedCell;
 @property (nonatomic) IBInspectable int topStackMaxCount;
 @property (nonatomic) IBInspectable int bottomStackMaxCount;
 @property (nonatomic) IBInspectable CGFloat bottomStackCardHeight;

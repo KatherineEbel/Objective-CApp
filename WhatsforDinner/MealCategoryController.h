@@ -11,7 +11,7 @@
 #import "CardStackCollectionViewDelegate.h"
 #import "MealCategoriesViewModel.h"
 #import "MealCategoryCardCell.h"
-@interface MealCategoryController : UICollectionViewController <CardStackCollectionViewDelegate>
+@interface MealCategoryController : UICollectionViewController <CardStackCollectionViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic) int numberOfCards;
 @property (nonatomic, strong, readonly) MealCategoriesViewModel* viewModel;

@@ -49,6 +49,16 @@
 - (void) setAnimationSpeedDefault:(float)animationSpeedDefault {
   self.collectionView.layer.speed = animationSpeedDefault;
 }
+
+- (void)loadRecipes {
+// NSDictionary *headers = @{@"X-Mashape-Key": @"rnkimlI8Yfmshdn0Regl8sKu6YQyp1gsrUDjsnQ3vmStqvoXJQ", @"Accept": @"application/json"};
+//  self.client = [[SpoonacularClient alloc] initWithBaseURL:nil sessionConfiguration:nil];
+//  [[self.client getRandomRecipes] subscribeNext:^(OVCResponse *response) {
+//    NSLog(@"%@", response.result);
+//  } error:^(NSError *error) {
+//    NSLog(@"\n%@\n%@\n%@", error.localizedFailureReason, error.localizedRecoverySuggestion, error.localizedRecoveryOptions);
+//  }];
+}
 /*
 #pragma mark - Navigation
 

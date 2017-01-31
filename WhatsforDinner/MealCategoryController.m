@@ -48,6 +48,16 @@ static NSString * const reuseIdentifier = @"mealCategoryCell";
   }
 }
 
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+  return true;
+}
+- (IBAction)addCategory:(id)sender {
+  NSIndexPath *indexPath = self.layout.indexPathOfDraggedCell;
+  MealCategory *category = self.viewModel.categories[indexPath.row];
+  NSLog(@"%@", category.title);
+  [self.viewModel addToSelectedCategories: [category.title lowercaseString]];
+}
+
 - (MealCategoryCardCell *)card:(UICollectionView *)collectionView cardForItemAtIndexPath:(NSIndexPath *)indexPath {
   MealCategoryCardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
   cell.layer.cornerRadius = 12;

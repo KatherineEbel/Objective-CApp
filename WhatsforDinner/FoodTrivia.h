@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Mantle/MTLModel.h>
+#import <Mantle/MTLJSONAdapter.h>
 
-@interface FoodTrivia : NSObject
+@interface FoodTrivia : MTLModel <MTLJSONSerializing> 
 @property NSString *text;
 
 @end

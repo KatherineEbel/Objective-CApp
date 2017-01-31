@@ -13,5 +13,5 @@
 
 @interface RandomRecipeResponse : MTLModel <MTLJSONSerializing>
 @property NSArray<Recipe*>* recipes;
-+ (NSDictionary *)parameters;
++ (NSDictionary *)parametersWithTags:(NSArray<NSString*> *)tags;
 @end

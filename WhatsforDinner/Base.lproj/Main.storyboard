@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T8H-EJ-zTR">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,7 +14,7 @@
         <scene sceneID="Zxk-mm-cfe">
             <objects>
                 <collectionViewController id="5Gb-Hi-cGo" customClass="RecipeCardStackViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" dataMode="prototypes" id="9vT-GS-yM6">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" id="9vT-GS-yM6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,6 +51,8 @@
                             <outlet property="delegate" destination="5Gb-Hi-cGo" id="32J-lP-kZ9"/>
                         </connections>
                     </collectionView>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="layout" destination="pYG-3d-ESx" id="6kQ-US-mON"/>
                     </connections>
@@ -62,7 +64,7 @@
         <!--What's for dinner?-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -111,6 +113,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="What's for dinner?" id="I1o-dr-2Rp"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="foodTriviaLabel" destination="BEF-Zm-SDv" id="3eL-Sd-Nwn"/>
                     </connections>
@@ -123,10 +127,11 @@
         <scene sceneID="bLB-pz-H0h">
             <objects>
                 <collectionViewController id="pYu-Et-8aa" customClass="MealCategoryController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" dataMode="prototypes" id="tSm-2n-J6M">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" id="tSm-2n-J6M">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <collectionViewLayout key="collectionViewLayout" id="SZM-ol-1sa" customClass="CardCollectionViewLayout">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="size" keyPath="cardSize">
@@ -157,6 +162,7 @@
                         <connections>
                             <outlet property="dataSource" destination="pYu-Et-8aa" id="SDT-Ur-oVL"/>
                             <outlet property="delegate" destination="pYu-Et-8aa" id="kMf-2s-6rx"/>
+                            <outletCollection property="gestureRecognizers" destination="XII-C0-z5w" appends="YES" id="juF-cP-Hzy"/>
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Pick Meal Categories" id="kCM-Qh-24d"/>
@@ -167,6 +173,12 @@
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vhL-aG-TbO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="XII-C0-z5w">
+                    <connections>
+                        <action selector="addCategory:" destination="pYu-Et-8aa" id="ZsM-vT-wZh"/>
+                        <outlet property="delegate" destination="pYu-Et-8aa" id="mWo-xc-a3L"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1710" y="-645"/>
         </scene>
@@ -175,7 +187,9 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="T8H-EJ-zTR" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="HKi-qe-VXI">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="HKi-qe-VXI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

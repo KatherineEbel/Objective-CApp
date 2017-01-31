@@ -9,6 +9,10 @@
 #import "MealCategoriesViewModel.h"
 
 @implementation MealCategoriesViewModel
+- (instancetype)init {
+  _selectedCategories = [NSMutableArray new];
+  return self;
+}
 - (NSArray *)categories {
   if (!_categories) {
     NSString* path = [[NSBundle mainBundle] pathForResource:@"MealCategories" ofType:@"plist"];
@@ -24,5 +28,9 @@
     [categories addObject: category];
   }
   return categories;
+}
+
+- (void)addToSelectedCategories:(NSString *)category {
+  [self.selectedCategories addObject: category];
 }
 @end
