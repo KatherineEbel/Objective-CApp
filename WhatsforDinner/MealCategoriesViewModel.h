@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MealCategory.h"
 
 @interface MealCategoriesViewModel : NSObject
-@property (strong, nonatomic) NSArray *categories;
+@property (strong, nonatomic) NSArray<MealCategory*> *categories;
 @end

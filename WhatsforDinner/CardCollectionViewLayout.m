@@ -37,13 +37,14 @@
     _coefficientOfrotation = 0.25;
     _angleOfRotationForNewCardAnimation = 0.25;
     _verticalOffsetBetweenCardsInTopStack = 16;
-    _centralCardYPosition = 90;
+    _centralCardYPosition = 70;
     _bottomStackRotations = [NSMutableDictionary dictionary];
     _minimumXPanDistanceToSwipe = 100;
     _minimumYPanDistanceToSwipe = 60;
   }
   return self;
 }
+
 - (void)setIndex:(int)index {
   _indexPathOfDraggedCell = _index > index ? [NSIndexPath indexPathForItem: index inSection:0] : [NSIndexPath indexPathForItem: _index inSection:0];
   _index = index;

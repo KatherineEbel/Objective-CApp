@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "FoodTrivia.h"
 
+#import "SpoonacularClient.h"
 @interface ViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *foodTriviaLabel;
 @property FoodTrivia *foodTrivia;
+@property (nonatomic, strong) SpoonacularClient *client;
 
 @end
 

@@ -12,8 +12,17 @@
 - (NSArray *)categories {
   if (!_categories) {
     NSString* path = [[NSBundle mainBundle] pathForResource:@"MealCategories" ofType:@"plist"];
-    _categories = [[NSArray alloc] initWithContentsOfFile: path ];
+    NSArray *categoriesDictArr = [[NSArray alloc] initWithContentsOfFile: path];
+    _categories = [MealCategoriesViewModel categoriesFromArr:categoriesDictArr];
   }
   return _categories;
+}
++ (NSArray<MealCategory*> *)categoriesFromArr:(NSArray<NSDictionary<NSString *, NSString *> *> *)arr {
+  NSMutableArray *categories = [NSMutableArray new];
+  for (NSDictionary *dict in arr) {
+    MealCategory *category = [[MealCategory alloc] initWithDict:dict];
+    [categories addObject: category];
+  }
+  return categories;
 }
 @end

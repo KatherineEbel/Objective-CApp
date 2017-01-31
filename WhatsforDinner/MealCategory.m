@@ -9,5 +9,9 @@
 #import "MealCategory.h"
 
 @implementation MealCategory
-
+- (instancetype)initWithDict:(NSDictionary<NSString *,NSString *> *)dict {
+  _title = dict[@"category"];
+  _imageName = dict[@"imageName"];
+  return self;
+}
 @end

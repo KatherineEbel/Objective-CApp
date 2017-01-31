@@ -7,17 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <RestKit/RestKit.h>
+#import <Mantle/MTLModel.h>
+#import <Mantle/MTLJSONAdapter.h>
 
-@interface Recipe : NSObject
+@interface Recipe : MTLModel <MTLJSONSerializing>
 
-@property int idNumber;
-@property NSString *imageURL;
-@property NSString *sourceURL;
+@property NSNumber *recipeID;
+@property NSNumber *preparationMinutes;
+@property NSNumber *readyInMinutes;
+@property NSNumber *cookingMinutes;
+@property NSURL *imageURL;
+@property NSURL *sourceURL;
 @property NSString *title;
-@property NSString *readyInMinutes;
 @property NSString *instructions;
-@property int cookingMinutes;
-+ (RKObjectMapping *)mapping;
- 
+@property NSString *creditText;
+
 @end

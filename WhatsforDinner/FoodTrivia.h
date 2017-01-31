@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface FoodTrivia : NSObject
-  @property NSString *text;
+@property NSString *text;
+
 @end
