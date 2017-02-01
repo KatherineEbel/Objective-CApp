@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <AFNetworking/UIKit+AFNetworking.h>
 @interface AppDelegate ()
 
 @end
@@ -15,6 +16,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
   return YES;
 }
 

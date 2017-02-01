@@ -34,16 +34,21 @@
     @strongify(self);
     self.foodTriviaLabel.text = foodTrivia.text;
   }];
-  RACSignal *errorSignal = [RACObserve(self.viewModel, clientError) subscribeOn: [RACScheduler mainThreadScheduler]];
-  [errorSignal subscribeNext:^(NSError *error) {
-    @strongify(self);
-    [self alertForError: error.localizedDescription];
+  RACSignal *errorSignal = [RACObserve(self.viewModel, errorMessage) subscribeOn: [RACScheduler mainThreadScheduler]];
+  [[errorSignal
+    skip: 1]
+    subscribeNext:^(NSString *errorMessage) {
+      @strongify(self);
+      NSLog(@"%@", errorMessage);
+      if (![self presentedViewController]) {
+        [self alertForError: errorMessage];
+      }
   }];
   
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-  [self loadFoodTrivia];
+//  [self loadFoodTrivia];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

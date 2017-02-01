@@ -13,5 +13,5 @@
 @interface FoodTrivaViewModel : NSObject
 @property (nonatomic, strong) SpoonacularClient *client;
 @property (nonatomic, strong) FoodTrivia *trivia;
-@property (nonatomic, strong) NSError *clientError;
+@property (nonatomic, strong) NSString *errorMessage;
 @end

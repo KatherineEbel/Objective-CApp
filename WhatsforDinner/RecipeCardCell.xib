@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CardCollectionCell">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RecipeCardCell">
             <rect key="frame" x="0.0" y="0.0" width="250" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -39,6 +39,10 @@
                 <constraint firstAttribute="trailingMargin" secondItem="PdC-xZ-ceo" secondAttribute="trailing" id="xJf-20-ugw"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="recipeImageView" destination="6PE-tq-5aK" id="AQf-s8-Csr"/>
+                <outlet property="recipeNameLabel" destination="klL-d2-Hs7" id="KXv-dz-4pS"/>
+            </connections>
         </view>
     </objects>
 </document>

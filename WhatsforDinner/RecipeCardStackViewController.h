@@ -10,7 +10,10 @@
 #import "CardCollectionViewLayout.h"
 #import "CardCollectionCell.h"
 #import "CardStackCollectionViewDelegate.h"
+#import "RecipeViewModel.h"
+#import "RecipeCardCell.h"
 @interface RecipeCardStackViewController<CardStackCollectionViewDelegate> : UICollectionViewController
 @property (nonatomic) int numberOfCards;
-- (CardCollectionCell *)card:(UICollectionView *)collectionView cardForItemAtIndexPath:(NSIndexPath *)indexPath;
+@property (nonatomic,strong) RecipeViewModel *viewModel;
+- (RecipeCardCell *)card:(UICollectionView *)collectionView cardForItemAtIndexPath:(NSIndexPath *)indexPath;
 @end

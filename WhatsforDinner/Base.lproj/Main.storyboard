@@ -14,8 +14,8 @@
         <scene sceneID="Zxk-mm-cfe">
             <objects>
                 <collectionViewController id="5Gb-Hi-cGo" customClass="RecipeCardStackViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" id="9vT-GS-yM6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" dataMode="prototypes" id="9vT-GS-yM6">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewLayout key="collectionViewLayout" id="pYG-3d-ESx" customClass="CardCollectionViewLayout">
@@ -36,7 +36,7 @@
                             </userDefinedRuntimeAttributes>
                         </collectionViewLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCell" id="Pgx-sL-aJ2" customClass="CardCollectionCell">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recipeCardCell" id="Pgx-sL-aJ2" customClass="RecipeCardCell">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -165,11 +165,14 @@
                             <outletCollection property="gestureRecognizers" destination="XII-C0-z5w" appends="YES" id="juF-cP-Hzy"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Pick Meal Categories" id="kCM-Qh-24d"/>
+                    <navigationItem key="navigationItem" title="Pick Meal Categories" id="kCM-Qh-24d">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="hLX-B8-bGj"/>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="layout" destination="SZM-ol-1sa" id="zIX-dS-udJ"/>
+                        <segue destination="5Gb-Hi-cGo" kind="show" identifier="showRandomRecipes" id="0g5-of-7EX"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vhL-aG-TbO" userLabel="First Responder" sceneMemberID="firstResponder"/>

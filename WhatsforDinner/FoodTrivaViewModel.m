@@ -8,26 +8,23 @@
 
 #import "FoodTrivaViewModel.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
-#import <Overcoat/OVCResponse.h>
+#import <Overcoat/Overcoat.h>
 #import <ReactiveCocoa/RACEXTScope.h>
 @implementation FoodTrivaViewModel
 - (instancetype)init {
   _client = [SpoonacularClient new];
-  
-  [[[self.client getFoodTrivia]
-    take: 1]
-    subscribeNext:^(OVCResponse *response) {
-      self.trivia = response.result;
-    } error:^(NSError *error) {
-      self.clientError = error;
-      NSLog(@"%@", self.clientError.localizedDescription);
-  }];
+//  @weakify(self)
+//  [[[self.client getFoodTrivia]
+//    take: 1]
+//    subscribeNext:^(OVCResponse *response) {
+//      @strongify(self)
+//      self.trivia = response.result;
+//    } error:^(NSError *error) {
+//      OVCResponse *response = error.userInfo[@"OVCResponse"];
+//      NSLog(@"%@", response.result);
+//      @strongify(self)
+//      self.errorMessage = response.result[@"message"];
+//  }];
   return self;
 }
 @end
-
-//  [[self.client getRandomRecipes] subscribeNext:^(OVCResponse *response) {
-//    NSLog(@"%@", response.result);
-//  } error:^(NSError *error) {
-//    NSLog(@"\n%@\n%@\n%@", error.localizedFailureReason, error.localizedRecoverySuggestion, error.localizedRecoveryOptions);
-//  }];

@@ -8,23 +8,45 @@
 
 #import "RecipeCardStackViewController.h"
 #import "CardCollectionCell.h"
+#import "UIViewController+ViewControllerErrorAlert.h"
+
 
 @interface RecipeCardStackViewController () {
-  NSArray *cardColors;
 }
 @property (weak, nonatomic) IBOutlet CardCollectionViewLayout *layout;
 @property (nonatomic) float animationSpeedDefault;
 @end
 
 @implementation RecipeCardStackViewController
+static NSString * const reuseIdentifier = @"recipeCardCell";
+
 - (void)viewDidLoad {
   [super viewDidLoad];
-  cardColors = @[[UIColor cyanColor], [UIColor magentaColor],
-        [UIColor purpleColor], [UIColor blueColor], [UIColor greenColor]];
   self.collectionView.scrollEnabled = false;
-  [self setNumberOfCards: 6];
+  [self setNumberOfCards: (int)[self.viewModel.randomRecipes count]];
   [self setAnimationSpeedDefault: 0.85];
   [self.layout setGesturesEnabled: YES];
+  UINib *cellNib = [UINib nibWithNibName: @"RecipeCardCell" bundle:nil];
+  [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:reuseIdentifier];
+  @weakify(self);
+  RACSignal *recipesSignal = [RACObserve(self.viewModel, randomRecipes) subscribeOn: [RACScheduler mainThreadScheduler]];
+  [[recipesSignal
+    skip:1]
+    subscribeNext:^(NSArray *recipes) {
+      @strongify(self);
+      self.numberOfCards = (int)[recipes count];
+      [self.collectionView reloadData];
+  }];
+  RACSignal *errorSignal = [RACObserve(self.viewModel, errorMessage) subscribeOn: [RACScheduler mainThreadScheduler]];
+  [[errorSignal
+    skip: 1]
+    subscribeNext:^(NSString *errorMessage) {
+      @strongify(self);
+      NSLog(@"%@", errorMessage);
+      if (![self presentedViewController]) {
+        [self alertForError: errorMessage];
+      }
+  }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,10 +61,10 @@
     [_layout handleAddingNewCard: 0];
   }
 }
-- (CardCollectionCell *)card:(UICollectionView *)collectionView cardForItemAtIndexPath:(NSIndexPath *)indexPath {
-  CardCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cardCell" forIndexPath:indexPath];
+- (RecipeCardCell *)card:(UICollectionView *)collectionView cardForItemAtIndexPath:(NSIndexPath *)indexPath {
+  RecipeCardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
   cell.layer.cornerRadius = 12;
-  cell.backgroundColor = cardColors[indexPath.item % [cardColors count]];
+  [cell setRecipe: self.viewModel.randomRecipes[indexPath.row]];
   return cell;
 }
 

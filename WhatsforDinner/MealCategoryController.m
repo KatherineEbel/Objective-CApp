@@ -7,6 +7,8 @@
 //
 
 #import "MealCategoryController.h"
+#import "RecipeCardStackViewController.h"
+#import "RecipeViewModel.h"
 
 @interface MealCategoryController ()
 @property (nonatomic, weak) IBOutlet CardCollectionViewLayout *layout;
@@ -33,6 +35,10 @@ static NSString * const reuseIdentifier = @"mealCategoryCell";
   [self.layout setGesturesEnabled: YES];
   UINib *cellNib = [UINib nibWithNibName: @"MealCategoryCardCell" bundle:nil];
   [self.collectionView registerNib:cellNib forCellWithReuseIdentifier: reuseIdentifier];
+  self.navigationItem.rightBarButtonItem.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+    [self performSegueWithIdentifier: @"showRandomRecipes" sender:self];
+    return [RACSignal empty];
+  }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,8 +62,13 @@ static NSString * const reuseIdentifier = @"mealCategoryCell";
   MealCategory *category = self.viewModel.categories[indexPath.row];
   NSLog(@"%@", category.title);
   [self.viewModel addToSelectedCategories: [category.title lowercaseString]];
+  [self markCellSelectedAt: indexPath];
 }
 
+- (void)markCellSelectedAt:(NSIndexPath *)indexPath {
+  UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath: indexPath];
+  cell.layer.borderColor = [UIColor greenColor].CGColor;
+}
 - (MealCategoryCardCell *)card:(UICollectionView *)collectionView cardForItemAtIndexPath:(NSIndexPath *)indexPath {
   MealCategoryCardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
   cell.layer.cornerRadius = 12;
@@ -71,15 +82,19 @@ static NSString * const reuseIdentifier = @"mealCategoryCell";
 - (void) setAnimationSpeedDefault:(float)animationSpeedDefault {
   self.collectionView.layer.speed = animationSpeedDefault;
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+  if ([segue.identifier  isEqual: @"showRandomRecipes"]) {
+    RecipeCardStackViewController *destinationController = [segue destinationViewController];
+    destinationController.viewModel = [[RecipeViewModel alloc] initWithRecipeTags:self.viewModel.selectedCategories];
+  }
+  
 }
-*/
 
 #pragma mark <UICollectionViewDataSource>
 
