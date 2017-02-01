@@ -28,7 +28,7 @@ static NSString * const reuseIdentifier = @"mealCategoryCell";
     [super viewDidLoad];
   
   self.collectionView.scrollEnabled = false;
-  [self.layout setCardSize: CGSizeMake(self.collectionView.bounds.size.width - 40, 2 * (self.collectionView.bounds.size.height / 3))];
+//  [self.layout setCardSize: CGSizeMake(self.collectionView.bounds.size.width - 40, 2 * (self.collectionView.bounds.size.height / 3))];
   [self.collectionView setContentOffset: CGPointMake(0, self.navigationController.navigationBar.frame.size.height + 10)];
   [self setNumberOfCards: (int)[self.viewModel.categories count]];
   [self setAnimationSpeedDefault: 0.85];

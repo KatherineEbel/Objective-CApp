@@ -18,6 +18,8 @@
   self.layer.shadowColor = [UIColor blackColor].CGColor;
 //  self.layer.shadowPath = [UIBezierPath bezierPathWithRect: self.bounds].CGPath;
   self.clipsToBounds = YES;
+  self.layer.borderColor = [UIColor darkGrayColor].CGColor;
+  self.layer.borderWidth = 2.0;
 }
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
   [super applyLayoutAttributes: layoutAttributes];

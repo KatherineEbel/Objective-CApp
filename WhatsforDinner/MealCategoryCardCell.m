@@ -11,8 +11,6 @@
 @implementation MealCategoryCardCell
 - (void)awakeFromNib {
   [super awakeFromNib];
-  self.layer.borderColor = [UIColor purpleColor].CGColor;
-  self.layer.borderWidth = 2.0;
 }
 
 

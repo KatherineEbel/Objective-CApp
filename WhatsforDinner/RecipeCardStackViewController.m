@@ -72,14 +72,9 @@ static NSString * const reuseIdentifier = @"recipeCardCell";
   self.collectionView.layer.speed = animationSpeedDefault;
 }
 
-- (void)loadRecipes {
-// NSDictionary *headers = @{@"X-Mashape-Key": @"rnkimlI8Yfmshdn0Regl8sKu6YQyp1gsrUDjsnQ3vmStqvoXJQ", @"Accept": @"application/json"};
-//  self.client = [[SpoonacularClient alloc] initWithBaseURL:nil sessionConfiguration:nil];
-//  [[self.client getRandomRecipes] subscribeNext:^(OVCResponse *response) {
-//    NSLog(@"%@", response.result);
-//  } error:^(NSError *error) {
-//    NSLog(@"\n%@\n%@\n%@", error.localizedFailureReason, error.localizedRecoverySuggestion, error.localizedRecoveryOptions);
-//  }];
+- (void)show:(Recipe *)recipe {
+  SFSafariViewController *controller = [[SFSafariViewController alloc] initWithURL:recipe.sourceURL entersReaderIfAvailable:true];
+  [self presentViewController:controller animated:true completion:nil];
 }
 /*
 #pragma mark - Navigation
@@ -106,4 +101,10 @@ static NSString * const reuseIdentifier = @"recipeCardCell";
   return [self card: collectionView cardForItemAtIndexPath: indexPath];
 }
 
+#pragma mark <UICollectionViewDataSource>
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+  Recipe *recipe = self.viewModel.randomRecipes[indexPath.row];
+  [self show:recipe];
+}
 @end

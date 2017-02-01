@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SafariServices/SafariServices.h>
 #import "CardCollectionViewLayout.h"
 #import "CardCollectionCell.h"
 #import "CardStackCollectionViewDelegate.h"
 #import "RecipeViewModel.h"
 #import "RecipeCardCell.h"
-@interface RecipeCardStackViewController<CardStackCollectionViewDelegate> : UICollectionViewController
+@interface RecipeCardStackViewController: UICollectionViewController <SFSafariViewControllerDelegate>
 @property (nonatomic) int numberOfCards;
 @property (nonatomic,strong) RecipeViewModel *viewModel;
 - (RecipeCardCell *)card:(UICollectionView *)collectionView cardForItemAtIndexPath:(NSIndexPath *)indexPath;
